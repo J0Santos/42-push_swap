@@ -6,7 +6,7 @@
 /*   By: josantos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 13:29:43 by josantos          #+#    #+#             */
-/*   Updated: 2021/06/17 19:18:12 by josantos         ###   ########.fr       */
+/*   Updated: 2021/06/17 23:32:13 by josantos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,12 @@ void	ft_presort_b(t_stack **stack_b, t_stack **stack_a);
 void	ft_presort_a_500(t_stack **stack_b, t_stack **stack_a, int count);
 void	ft_presort_b_500(t_stack **stack_b, t_stack **stack_a, int median);
 void	ft_split_b(t_stack **stack_b, t_stack **stack_a);
+
+int		ft_part_1(t_stack **stack_a, t_stack **stack_b);
+int		ft_part_2(t_stack **stack_a, t_stack **stack_b, int min);
+int		ft_part_3(t_stack **stack_a, t_stack **stack_b, int min);
+void	ft_part_4(t_stack **stack_a, t_stack **stack_b, int min);
+t_stack	*builder(t_stack *stack);
+int		ft_pos_check(t_stack *stack_a, int value);
+
 #endif

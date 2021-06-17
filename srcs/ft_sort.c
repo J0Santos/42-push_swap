@@ -115,6 +115,20 @@ void	ft_sort_large_100(t_stack **stack)
 void	ft_sort_large_500(t_stack **stack_a)
 {
 	t_stack *stack_b;
+	int min;
+	int count;
+
+	stack_b = NULL;
+	count = 0;
+	min = 0;
+	min = ft_part_1(stack_a, &stack_b);
+	min = ft_part_2(stack_a, &stack_b, min);
+	min = ft_part_3(stack_a, &stack_b, min);
+	ft_part_4(stack_a, &stack_b, min);
+}
+/*void	ft_sort_large_500(t_stack **stack_a)
+{
+	t_stack *stack_b;
 	int median;
 	int size;
 	int split;
@@ -132,8 +146,8 @@ void	ft_sort_large_500(t_stack **stack_a)
 		size = ft_dlst_size(*stack_a);
 		split = size / 2;
 		median = ft_dlst_median(*stack_a);
-		median = fake_median_check(*stack_a, median);
 		split = fake_split_check(split);
+		median = fake_median_check(*stack_a, median, split);
 		while (split >= 1)
 		{
 			if ((*stack_a)->data < median)
@@ -156,4 +170,4 @@ void	ft_sort_large_500(t_stack **stack_a)
 		}
 	}
 	ft_sort_b_500(&stack_b, stack_a);
-}
+}*/

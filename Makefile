@@ -10,7 +10,9 @@ SRCS = ft_push_swap.c \
 	   srcs/ft_median.c \
 	   srcs/ft_rotate_choice.c \
 	   srcs/ft_sort_large_100_utils.c \
-	   srcs/ft_sort_large_500_utils.c
+	   srcs/ft_sort_large_500_utils.c \
+		srcs/ft_sort_large_500_utils_2.c
+
 OBJS = $(SRCS:.c=.o)
 FLAGS = -Wall -Wextra -Werror
 INCS = -Iincludes -Llibft -lft
