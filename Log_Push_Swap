@@ -1,0 +1,99 @@
+The project Push_Swap consitst of sorting X number of ints in an ascending order (smallest one at the top) with the smalles number of instructions given.
+
+You will receive 2 stacks, A and B.
+
+		- A contains a random number of either positive or negative values, without any duplicates;
+		- B is empty;
+
+These are the allowed instructions to use for the project:
+
+		-> sa - Swap A: Swap the first two elements at the top of stack A. Do nothing if there are <=1 elements.
+		ex:
+				Stack A	---> Stack A
+				  4			   5
+				  5			   4
+				  33		   33
+				  -8		   -8
+				  54		   54
+
+		-> sb - Swap B: Swap the first two elements at the top of stack B. Do nothing if there are <=1 elements.
+		ex:
+				Stack B	---> Stack B
+				  7			  12
+				  12		  7
+				  -42		  -42
+				  -2		  -2
+				  9			  9
+
+		-> ss: sa and sb at the same time;
+
+		-> pa - Push A: Take the first element of B and place it on top of A. Do nothing if B is empty.
+		ex:
+				Stack A		Stack B	---> Stack A	Stack B
+				  4			  7			   7		  12
+				  5			  12		   4		  -42
+				  33		  -42		   5		  -2
+				  -8		  -2		   33		  9
+				  54		  9			   -8
+										   54
+
+		-> pb - Push B: Take the first element of A and place it on top of B. Do nothing if A is empty.
+		ex:
+				Stack A		Stack B	---> Stack A	Stack B
+				  4			  7			   5		  4
+				  5			  12		   33		  7
+				  33		  -42		   -8		  12
+				  -8		  -2		   54		  -42
+				  54		  9						  -2
+													  9
+
+		-> ra - Rotate A: Move all elements of stack A by 1. The first element becomes the last.
+		ex:
+				Stack A	---> Stack A
+				  4			   5
+				  5			   33
+				  33		   -8
+				  -8		   54
+				  54		   4
+
+		-> rb - Rotate B: Move all elements of stack B by 1. The first element becomes the last.
+		ex:
+				Stack B	---> Stack B
+				  7			  12
+				  12		  -42
+				  -42		  -2
+				  -2		  9
+				  9			  7
+
+		-> rra - Reverse Rotate A: Move all elements of stack A by 1. The last element becomes the first.
+		ex:
+				Stack A	---> Stack A
+				  4			   54
+				  5			   4
+				  33		   5
+				  -8		   33
+				  54		   -8
+
+		-> rrb - Reverse Rotate B: Move all elements of stack B by 1. The last element becomes the first.
+		ex:
+				Stack B	---> Stack B
+				  7			  9
+				  12		  7
+				  -42		  12
+				  -2		  -42
+				  9			  -2
+
+		-> rrr - rra and rr at the same time.
+
+
+The list of instructions must have each element separated by a '\n' an nothing else.
+
+During defense, Moulinette will compare the number of instructions your program has with the maximum number of instructions tolerated. If the this number is to big, or the list isn't properly sorted, the project will fail.
+
+In case of error, you must display <Error> followed by '\n'. These errors can be:
+																					- some arguments aren't ints;
+																					- Some arguments are bigger than int;
+																					- There are duplicates;
+																					- ...;
+
+
