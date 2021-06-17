@@ -115,12 +115,12 @@ void	ft_sort_large_100(t_stack **stack)
 void	ft_sort_large_500(t_stack **stack_a)
 {
 	t_stack *stack_b;
-	int i;
 	int median;
 	int size;
 	int split;
+	int count;
 
-	i = 0;
+	count = 0;
 	stack_b = NULL;
 	while (*stack_a)
 	{
@@ -132,19 +132,28 @@ void	ft_sort_large_500(t_stack **stack_a)
 		size = ft_dlst_size(*stack_a);
 		split = size / 2;
 		median = ft_dlst_median(*stack_a);
+		median = fake_median_check(*stack_a, median);
+		split = fake_split_check(split);
 		while (split >= 1)
+		{
 			if ((*stack_a)->data < median)
 			{
 				ft_push_pb(stack_a, &stack_b);
 				ft_presort_b_500(&stack_b, stack_a, median);
 				split--;
+				count++;
 			}
 			else
 				if (ft_rotate_choice(*stack_a, size, median) == 0)
 					ft_rotate_ra(stack_a);
 				else
 					ft_rrotate_rra(stack_a);
-		i++;
+			if (count == 125)
+			{
+				ft_presort_a_500(&stack_b, stack_a, count);
+				count = 0;
+			}
+		}
 	}
 	ft_sort_b_500(&stack_b, stack_a);
 }

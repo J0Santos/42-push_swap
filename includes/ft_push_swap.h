@@ -6,7 +6,7 @@
 /*   By: josantos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 13:29:43 by josantos          #+#    #+#             */
-/*   Updated: 2021/06/16 17:56:19 by josantos         ###   ########.fr       */
+/*   Updated: 2021/06/17 19:18:12 by josantos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ void	ft_push_pb(t_stack **stack_a, t_stack **stack_b);
 void	ft_error_check(int counter, char **str);
 void	ft_sort(t_stack **stack);
 int		ft_dlst_median(t_stack *stack);
+int		fake_median_check(t_stack *stack_a, int median);
+int		fake_split_check(int split);
 void	ft_sort_small(t_stack **stack);
 void	ft_sort_medium(t_stack **stack);
 void	ft_sort_large_100(t_stack **stack);
@@ -45,6 +47,7 @@ void	ft_sort_a_500(t_stack **stack_a, t_stack **stack_b);
 void	ft_sort_b_500(t_stack **stack_b, t_stack **stack_a);
 void	ft_sort_b(t_stack **stack_b, t_stack **stack_a);
 void	ft_presort_b(t_stack **stack_b, t_stack **stack_a);
+void	ft_presort_a_500(t_stack **stack_b, t_stack **stack_a, int count);
 void	ft_presort_b_500(t_stack **stack_b, t_stack **stack_a, int median);
 void	ft_split_b(t_stack **stack_b, t_stack **stack_a);
 #endif

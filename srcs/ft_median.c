@@ -6,7 +6,7 @@
 /*   By: josantos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 13:12:11 by josantos          #+#    #+#             */
-/*   Updated: 2021/06/15 14:14:30 by josantos         ###   ########.fr       */
+/*   Updated: 2021/06/17 19:17:51 by josantos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,20 @@ static void	fake_sort(t_stack **stack)
 		}
 }
 
+static t_stack	*builder(t_stack *stack)
+{
+	t_stack *temp;
+
+	temp = NULL;
+	while (stack)
+	{
+		build_stack(stack->data, &temp);
+		stack = stack->next;
+	}
+	fake_sort(&temp);
+	return (temp);
+}
+
 int	ft_dlst_median(t_stack *stack)
 {
 	int median;
@@ -41,19 +55,36 @@ int	ft_dlst_median(t_stack *stack)
 	t_stack *temp;
 
 	i = 1;
-	temp = NULL;
+	temp = builder(stack);
 	size = ft_dlst_size(stack);
 	stack = ft_dlst_first(stack);
-	while (stack)
-	{
-		build_stack(stack->data, &temp);
-		stack = stack->next;
-	}
-	fake_sort(&temp);
 	while (i++ <= (size / 2))
 		temp = temp->next;
 	median = temp->data;
 	temp = ft_dlst_last(temp);
 	ft_dlst_clear(&temp);
 	return (median);
+}
+
+int	fake_median_check(t_stack *stack_a, int median)
+{
+	static bool first = true;
+	int fake_median;
+	t_stack *temp;
+	int i;
+
+	i = 0;
+	if (first == true)
+	{
+		temp = builder(stack_a);
+		while (i++ <= (median / 2))
+			temp = temp->next;
+		fake_median = temp->data;
+		temp = ft_dlst_last(temp);
+		ft_dlst_clear(&temp);
+		first = false;
+		return (fake_median);
+	}
+	else
+		return (median);
 }
