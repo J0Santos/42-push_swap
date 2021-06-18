@@ -6,7 +6,7 @@
 /*   By: josantos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 13:29:43 by josantos          #+#    #+#             */
-/*   Updated: 2021/06/18 12:49:08 by josantos         ###   ########.fr       */
+/*   Updated: 2021/06/18 16:18:56 by josantos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,16 @@ void	ft_sort_small(t_stack **stack);
 void	ft_sort_medium(t_stack **stack);
 void	ft_sort_large_100(t_stack **stack);
 void	ft_sort_large_500(t_stack **stack);
-int		ft_rotate_choice(t_stack *stack, int size, int median);
+int		ft_rotate_choice(t_stack *stack, int median);
+int		ft_rotate_choice_2(t_stack *stack, int median, int limit);
+int		ft_rotate_choice_3(t_stack *stack, int median);
 int		ft_rotate_choice_limits(t_stack *stack, int size, int limit);
 void	first_half(t_stack **stack, t_stack **stack_b, int size);
 void	second_half(t_stack **stack, t_stack **stack_b, int size);
 void	ft_sort_a(t_stack **stack_a, t_stack **stack_b);
 void	ft_sort_a_500(t_stack **stack_a, t_stack **stack_b);
-void	ft_sort_b_500(t_stack **stack_b, t_stack **stack_a);
+void	ft_sort_b_500(t_stack **stack_b, t_stack **stack_a, int min);
+void	ft_sort_b_start(t_stack **stack_a, int min);
 void	ft_sort_b(t_stack **stack_b, t_stack **stack_a);
 void	ft_presort_b(t_stack **stack_b, t_stack **stack_a);
 void	ft_presort_a_500(t_stack **stack_b, t_stack **stack_a, int count);

@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rotate_choice.c                                 :+:      :+:    :+:   */
+/*   ft_rotate_choice_2.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: josantos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/09 19:04:25 by josantos          #+#    #+#             */
-/*   Updated: 2021/06/17 22:38:19 by josantos         ###   ########.fr       */
+/*   Created: 2021/06/18 15:57:57 by josantos          #+#    #+#             */
+/*   Updated: 2021/06/18 15:58:38 by josantos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
+
 #include "ft_push_swap.h"
 
-static int	ft_position(t_stack *stack, int median)
+static int	ft_position_down(t_stack *stack, int median, int limit)
 {
 	int pos;
 
 	pos = 1;
 	while (stack->next)
-		if (stack->data > median)
+		if (stack->data > median && stack->data < limit)
 			break ;
 		else
 		{
@@ -28,39 +30,31 @@ static int	ft_position(t_stack *stack, int median)
 	return (pos);
 }
 
-int	ft_rotate_choice(t_stack *stack, int size, int median)
-{
-	int pos;
-
-	pos = ft_position(stack, median);
-	if (pos > (size / 2))
-		return (0);
-	else
-		return (1);
-}
-
-static int	ft_position_limits(t_stack *stack, int limit)
+static int	ft_position_up(t_stack *stack, int median, int limit)
 {
 	int pos;
 
 	pos = 1;
-	while (stack->next)
-		if (stack->data == limit)
+	stack = ft_dlst_last(stack);
+	while (stack->prev)
+		if (stack->data > median && stack->data < limit)
 			break ;
 		else
 		{
-			stack = stack->next;
+			stack = stack->prev;
 			pos++;
 		}
 	return (pos);
 }
 
-int	ft_rotate_choice_limits(t_stack *stack, int size, int limit)
+int	ft_rotate_choice_2(t_stack *stack, int median, int limit)
 {
-	int pos;
+	int pos_down;
+	int pos_up;
 
-	pos = ft_position_limits(stack, limit);
-	if (pos >= (size / 2))
+	pos_down = ft_position_down(stack, median, limit);
+	pos_up = ft_position_up(stack, median, limit);
+	if (pos_up < pos_down)
 		return (0);
 	else
 		return (1);

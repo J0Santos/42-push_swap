@@ -6,7 +6,7 @@
 /*   By: josantos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 14:41:00 by josantos          #+#    #+#             */
-/*   Updated: 2021/06/17 11:41:23 by josantos         ###   ########.fr       */
+/*   Updated: 2021/06/18 15:56:09 by josantos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,15 +87,12 @@ void	ft_sort_medium(t_stack **stack_a)
 
 void	ft_sort_large_100(t_stack **stack)
 {
-
-	int size;
 	t_stack *stack_b;
 	int median;
 
 	stack_b = NULL;
 	while (ft_dlst_size(*stack) > 17)
 	{
-		size = ft_dlst_size(*stack);
 		median = ft_dlst_median(*stack);
 		if ((*stack)->data < median)
 		{
@@ -103,7 +100,7 @@ void	ft_sort_large_100(t_stack **stack)
 			ft_presort_b(&stack_b, stack);
 		}
 		else
-			if (ft_rotate_choice(*stack, size, median) == 0)
+			if (ft_rotate_choice(*stack, median) == 0)
 				ft_rotate_ra(stack);
 			else
 				ft_rrotate_rra(stack);

@@ -6,7 +6,7 @@
 /*   By: josantos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 20:01:50 by josantos          #+#    #+#             */
-/*   Updated: 2021/06/16 13:26:13 by josantos         ###   ########.fr       */
+/*   Updated: 2021/06/18 15:56:50 by josantos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ void	ft_sort_b(t_stack **stack_b, t_stack **stack_a)
 
 void	ft_sort_a(t_stack **stack_a, t_stack **stack_b)
 {
-	int size;
 	int median;
 	bool rotate;
 	int choice;
@@ -65,8 +64,7 @@ void	ft_sort_a(t_stack **stack_a, t_stack **stack_b)
 		{
 			if (rotate == false)
 			{
-				size = ft_dlst_size(*stack_a);
-				choice = ft_rotate_choice(*stack_a, size, median);
+				choice = ft_rotate_choice(*stack_a, median);
 				rotate = true;
 			}
 			if (choice == 1)

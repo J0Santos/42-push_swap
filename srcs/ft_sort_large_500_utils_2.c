@@ -6,7 +6,7 @@
 /*   By: josantos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 16:20:29 by josantos          #+#    #+#             */
-/*   Updated: 2021/06/18 12:49:11 by josantos         ###   ########.fr       */
+/*   Updated: 2021/06/18 16:27:50 by josantos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,18 @@ int	fake_median_min(t_stack *stack_a, int median)
 	temp = ft_dlst_last(temp);
 	ft_dlst_clear(&temp);
 	return (fake_median);
+}
+
+void	ft_sort_b_start(t_stack **stack_a, int min)
+{
+	int choice;
+	int size;
+
+	size = ft_dlst_size(*stack_a);
+	choice = ft_rotate_choice_limits(*stack_a, size, min);
+	while ((*stack_a)->data != min)
+		if (choice == 1)
+			ft_rotate_ra(stack_a);
+		else
+			ft_rrotate_rra(stack_a);
 }
