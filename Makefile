@@ -11,9 +11,8 @@ SRCS = ft_push_swap.c \
 	   srcs/ft_rotate_choice_1.c \
 	   srcs/ft_rotate_choice_2.c \
 	   srcs/ft_rotate_choice_3.c \
-	   srcs/ft_sort_large_100_utils.c \
-	   srcs/ft_sort_large_500_utils.c \
-		srcs/ft_sort_large_500_utils_2.c
+	   srcs/ft_sort_large_utils_1.c \
+		srcs/ft_sort_large_utils_2.c
 
 OBJS = $(SRCS:.c=.o)
 FLAGS = -Wall -Wextra -Werror

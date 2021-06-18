@@ -6,7 +6,7 @@
 /*   By: josantos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 17:41:48 by josantos          #+#    #+#             */
-/*   Updated: 2021/05/27 18:03:14 by josantos         ###   ########.fr       */
+/*   Updated: 2021/06/18 19:31:14 by josantos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ long long	ft_atoll(char *str)
 {
 	long long			a;
 	long long			b;
-	long long	c;
+	long long			c;
 
 	a = 0;
 	b = 1;

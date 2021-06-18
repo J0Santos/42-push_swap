@@ -6,7 +6,7 @@
 /*   By: josantos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 17:21:27 by josantos          #+#    #+#             */
-/*   Updated: 2021/05/28 15:27:02 by josantos         ###   ########.fr       */
+/*   Updated: 2021/06/18 19:30:19 by josantos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	ft_swap(t_stack *stack)
 {
-	int temp;
+	int	temp;
 
 	stack = ft_dlst_first(stack);
 	if (stack->next == NULL || !stack)
@@ -26,6 +26,7 @@ static void	ft_swap(t_stack *stack)
 	}
 	stack = ft_dlst_first(stack);
 }
+
 void	ft_swap_sa(t_stack *stack_a)
 {
 	ft_putstr_fd("sa\n", 1);
@@ -44,4 +45,3 @@ void	ft_swap_ss(t_stack *stack_a, t_stack *stack_b)
 	ft_swap(stack_a);
 	ft_swap(stack_b);
 }
-

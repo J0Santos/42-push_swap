@@ -6,7 +6,7 @@
 /*   By: josantos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 13:29:43 by josantos          #+#    #+#             */
-/*   Updated: 2021/06/18 17:45:26 by josantos         ###   ########.fr       */
+/*   Updated: 2021/06/18 19:17:51 by josantos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,28 +33,22 @@ void	ft_error_check(int counter, char **str);
 void	ft_sort(t_stack **stack);
 int		ft_dlst_median(t_stack *stack);
 int		fake_median_check(t_stack *stack_a, int median);
-int		fake_split_check(int split);
 void	ft_sort_small(t_stack **stack);
 void	ft_sort_medium(t_stack **stack);
-void	ft_sort_large_100(t_stack **stack);
 void	ft_sort_large_500(t_stack **stack);
 int		ft_rotate_choice(t_stack *stack, int median);
 int		ft_rotate_choice_2(t_stack *stack, int median, int limit);
 int		ft_rotate_choice_3(t_stack *stack, int median);
 int		ft_rotate_choice_limits(t_stack *stack, int size, int limit);
-void	first_half(t_stack **stack, t_stack **stack_b, int size);
-void	second_half(t_stack **stack, t_stack **stack_b, int size);
-void	ft_sort_a(t_stack **stack_a, t_stack **stack_b);
 void	ft_sort_a_500(t_stack **stack_a, t_stack **stack_b);
 void	ft_sort_b_500(t_stack **stack_b, t_stack **stack_a, int min);
 void	ft_sort_b_start(t_stack **stack_a, int min);
-void	ft_sort_b(t_stack **stack_b, t_stack **stack_a);
-void	ft_presort_b(t_stack **stack_b, t_stack **stack_a);
 void	ft_presort_a_500(t_stack **stack_b, t_stack **stack_a, int count);
 void	ft_presort_b_500(t_stack **stack_b, t_stack **stack_a, int median);
-void	ft_split_b(t_stack **stack_b, t_stack **stack_a);
 
 int		ft_part_1(t_stack **stack_a, t_stack **stack_b);
+void	ft_part_1_cont(t_stack **stack_a, t_stack **stack_b, int fake_median,
+			int median);
 int		ft_part_2(t_stack **stack_a, t_stack **stack_b, int min);
 int		ft_part_3(t_stack **stack_a, t_stack **stack_b, int min);
 void	ft_part_4(t_stack **stack_a, t_stack **stack_b, int min);

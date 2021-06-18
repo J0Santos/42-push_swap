@@ -6,7 +6,7 @@
 /*   By: josantos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 12:00:16 by josantos          #+#    #+#             */
-/*   Updated: 2021/06/09 16:36:14 by josantos         ###   ########.fr       */
+/*   Updated: 2021/06/18 19:31:59 by josantos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,3 @@ void	ft_dlstadd_back(t_stack **stack, t_stack *new_node)
 		last->next = new_node;
 	}
 }
-
