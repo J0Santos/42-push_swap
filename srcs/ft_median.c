@@ -6,27 +6,11 @@
 /*   By: josantos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 13:12:11 by josantos          #+#    #+#             */
-/*   Updated: 2021/06/17 23:32:10 by josantos         ###   ########.fr       */
+/*   Updated: 2021/06/18 12:49:13 by josantos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
-
-static int	position(t_stack *temp, int median)
-{
-	int pos;
-
-	pos = 0;
-	while (temp->next)
-		if (temp->data == median)
-			break;
-		else
-		{
-			temp = temp->next;
-			pos++;
-		}
-	return (pos);
-}
 
 static void	fake_sort(t_stack **stack)
 {
@@ -47,6 +31,22 @@ static void	fake_sort(t_stack **stack)
 			}
 			*stack = ft_dlst_first(*stack);
 		}
+}
+
+int	position(t_stack *temp, int median)
+{
+	int pos;
+
+	pos = 0;
+	while (temp->next)
+		if (temp->data == median)
+			break;
+		else
+		{
+			temp = temp->next;
+			pos++;
+		}
+	return (pos);
 }
 
 t_stack	*builder(t_stack *stack)

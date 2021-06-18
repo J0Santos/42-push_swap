@@ -6,7 +6,7 @@
 /*   By: josantos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 13:29:43 by josantos          #+#    #+#             */
-/*   Updated: 2021/06/17 23:32:13 by josantos         ###   ########.fr       */
+/*   Updated: 2021/06/18 12:49:08 by josantos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,7 @@ int		ft_part_3(t_stack **stack_a, t_stack **stack_b, int min);
 void	ft_part_4(t_stack **stack_a, t_stack **stack_b, int min);
 t_stack	*builder(t_stack *stack);
 int		ft_pos_check(t_stack *stack_a, int value);
+int		position(t_stack *temp, int median);
+int		fake_median_min(t_stack *stack_a, int median);
 
 #endif

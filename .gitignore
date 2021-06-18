@@ -1,0 +1,6 @@
+*.o
+*.swp
+*.swo
+push_swap
+push
+push.dSYM

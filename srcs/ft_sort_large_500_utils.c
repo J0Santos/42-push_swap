@@ -6,7 +6,7 @@
 /*   By: josantos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 15:22:23 by josantos          #+#    #+#             */
-/*   Updated: 2021/06/17 23:32:08 by josantos         ###   ########.fr       */
+/*   Updated: 2021/06/18 12:51:06 by josantos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,22 +127,31 @@ int	ft_part_1(t_stack **stack_a, t_stack **stack_b)
 	int size;
 	int fake_median;
 	int min;
+	 bool rotate;
+	int choice;
 
+	rotate = false;
 	median = ft_dlst_median(*stack_a);
 	fake_median = fake_median_check(*stack_a, median);
 	stopper = ft_pos_check(*stack_a, fake_median) 
 		- ft_pos_check(*stack_a, median);
 	size = ft_dlst_size(*stack_a);
-	while (stopper > 0)
+	while (stopper > 1)
 	{
 		if ((*stack_a)->data > fake_median)
 		{
 			ft_push_pb(stack_a, stack_b);
 			ft_presort_b_500(stack_b, stack_a, median);
 			stopper--;
+			rotate = false;
 		}
 		else
-			if (ft_rotate_choice(*stack_a, size, median) == 1)
+			if (rotate == false)
+			{
+				choice = ft_rotate_choice(*stack_a, size, median);
+				rotate = true;
+			}
+			if (choice == 1)
 				ft_rotate_ra(stack_a);
 			else
 				ft_rrotate_rra(stack_a);
@@ -157,20 +166,29 @@ int	ft_part_2(t_stack **stack_a, t_stack **stack_b, int min)
 	int median;
 	int size;
 	int stopper;
+	int choice;
+	bool rotate;
 
+	rotate = false;
 	median = ft_dlst_median(*stack_a);
 	stopper = (ft_pos_check(*stack_a, min) - ft_pos_check(*stack_a, median));
 	size = ft_dlst_size(*stack_a);
-	while (stopper > 0) 
+	while (stopper > 1) 
 	{
 		if ((*stack_a)->data > median && (*stack_a)->data <= min)
 		{
 			ft_push_pb(stack_a, stack_b);
 			ft_presort_b_500(stack_b, stack_a, median);
 			stopper--;
+			rotate = false;
 		}
 		else
-			if (ft_rotate_choice(*stack_a, size, min) == 1)
+			if (rotate == false)
+			{
+				choice = ft_rotate_choice(*stack_a, size, median);
+				rotate = true;
+			}
+			if (choice == 1)
 				ft_rotate_ra(stack_a);
 			else
 				ft_rrotate_rra(stack_a);
@@ -182,23 +200,34 @@ int	ft_part_2(t_stack **stack_a, t_stack **stack_b, int min)
 
 int	ft_part_3(t_stack **stack_a, t_stack **stack_b, int min)
 {
-	int median;
+	int fake_median;
 	int stopper;
 	int size;
+	int choice;
+	bool rotate;
+	int median;
 	
-	median = fake_median_check(*stack_a, ft_dlst_median(*stack_a));
-	stopper = (ft_pos_check(*stack_a, min) - ft_pos_check(*stack_a, median));
+	rotate = false;
+	median = ft_dlst_median(*stack_a);
+	fake_median = fake_median_min(*stack_a, median);
+	stopper = (ft_pos_check(*stack_a, min) - ft_pos_check(*stack_a, fake_median));
 	size = ft_dlst_size(*stack_a);
-	while (stopper > 0)
+	while (stopper > 1)
 	{
-		if ((*stack_a)->data > median && (*stack_a)->data <= min)
+		if ((*stack_a)->data > fake_median && (*stack_a)->data <= min)
 		{
 			ft_push_pb(stack_a, stack_b);
 			ft_presort_b_500(stack_b, stack_a, min);
 			stopper--;
+			rotate = false;
 		}
 		else
-			if (ft_rotate_choice(*stack_a, size, min) == 1)
+			if (rotate == false)
+			{
+				choice = ft_rotate_choice(*stack_a, size, median);
+				rotate = true;
+			}
+			if (choice == 1)
 				ft_rotate_ra(stack_a);
 			else
 				ft_rrotate_rra(stack_a);
@@ -212,20 +241,30 @@ void	ft_part_4(t_stack **stack_a, t_stack **stack_b, int min)
 {
 	int stopper;
 	int size;
+	int choice;
+	bool rotate;
+	int median;
 
+	rotate = false;
+	median = ft_dlst_median(*stack_a);
 	stopper = ft_pos_check(*stack_a, min);
 	size = ft_dlst_size(*stack_a);
-
-	while (stopper > 0)
+	while (stopper > 1)
 	{
 		if ((*stack_a)->data < min)
 		{
 			ft_push_pb(stack_a, stack_b);
 			ft_presort_b_500(stack_b, stack_a, min);
 			stopper--;
+			rotate = false;
 		}
 		else
-			if (ft_rotate_choice(*stack_a, size, min) == 1)
+			if (rotate == false)
+			{
+				choice = ft_rotate_choice(*stack_a, size, median);
+				rotate = true;
+			}
+			if (choice == 1)
 				ft_rotate_ra(stack_a);
 			else
 				ft_rrotate_rra(stack_a);
