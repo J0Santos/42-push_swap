@@ -6,7 +6,7 @@
 /*   By: josantos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 15:22:23 by josantos          #+#    #+#             */
-/*   Updated: 2021/06/18 18:44:46 by josantos         ###   ########.fr       */
+/*   Updated: 2021/06/18 18:49:14 by josantos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,11 @@ void	ft_presort_b_500(t_stack **stack_b, t_stack **stack_a, int median)
 {
 	int	median_b;
 	int	size;
-	
+
 	size = ft_dlst_size(*stack_a);
 	median_b = ft_dlst_median(*stack_b);
 	if ((*stack_b)->next)
+	{
 		if ((*stack_b)->data < median_b)
 		{
 			if ((*stack_a)->data < median)
@@ -60,8 +61,9 @@ void	ft_presort_b_500(t_stack **stack_b, t_stack **stack_a, int median)
 			else
 				ft_rotate_rb(stack_b);
 		}
+	}
 	if ((*stack_b)->next && (*stack_b)->data > (*stack_b)->next->data)
-			ft_swap_sb(*stack_b);
+		ft_swap_sb(*stack_b);
 }
 
 int	ft_part_1(t_stack **stack_a, t_stack **stack_b)
@@ -76,7 +78,7 @@ int	ft_part_1(t_stack **stack_a, t_stack **stack_b)
 	rotate = false;
 	median = ft_dlst_median(*stack_a);
 	fake_median = fake_median_check(*stack_a, median);
-	stopper = ft_pos_check(*stack_a, fake_median) 
+	stopper = ft_pos_check(*stack_a, fake_median)
 		- ft_pos_check(*stack_a, median);
 	while (stopper > 1)
 	{
@@ -115,7 +117,7 @@ int	ft_part_2(t_stack **stack_a, t_stack **stack_b, int min)
 	rotate = false;
 	median = ft_dlst_median(*stack_a);
 	stopper = (ft_pos_check(*stack_a, min) - ft_pos_check(*stack_a, median));
-	while (stopper > 0) 
+	while (stopper > 0)
 	{
 		if ((*stack_a)->data >= median && (*stack_a)->data < min)
 		{
@@ -150,11 +152,12 @@ int	ft_part_3(t_stack **stack_a, t_stack **stack_b, int min)
 	int		choice;
 	bool	rotate;
 	int		median;
-	
+
 	rotate = false;
 	median = ft_dlst_median(*stack_a);
 	fake_median = fake_median_min(*stack_a, median);
-	stopper = (ft_pos_check(*stack_a, min) - ft_pos_check(*stack_a, fake_median));
+	stopper = (ft_pos_check(*stack_a, min)
+			- ft_pos_check(*stack_a, fake_median));
 	while (stopper > 0)
 	{
 		if ((*stack_a)->data >= fake_median && (*stack_a)->data < min)
