@@ -6,7 +6,7 @@
 /*   By: josantos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 13:12:11 by josantos          #+#    #+#             */
-/*   Updated: 2021/06/18 12:49:13 by josantos         ###   ########.fr       */
+/*   Updated: 2021/06/18 18:32:02 by josantos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 static void	fake_sort(t_stack **stack)
 {
-	int temp;
+	int	temp;
 
 	if (*stack)
+	{
 		while (ft_dlstis_sorted_ascend(*stack) != 1)
 		{
 			while ((*stack)->next)
@@ -31,27 +32,30 @@ static void	fake_sort(t_stack **stack)
 			}
 			*stack = ft_dlst_first(*stack);
 		}
+	}
 }
 
 int	position(t_stack *temp, int median)
 {
-	int pos;
+	int	pos;
 
 	pos = 0;
 	while (temp->next)
+	{
 		if (temp->data == median)
-			break;
+			break ;
 		else
 		{
 			temp = temp->next;
 			pos++;
 		}
+	}
 	return (pos);
 }
 
 t_stack	*builder(t_stack *stack)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
 	temp = NULL;
 	while (stack)
@@ -65,10 +69,10 @@ t_stack	*builder(t_stack *stack)
 
 int	ft_dlst_median(t_stack *stack)
 {
-	int median;
-	int size;
-	int i;
-	t_stack *temp;
+	int		median;
+	int		size;
+	int		i;
+	t_stack	*temp;
 
 	i = 1;
 	temp = NULL;
@@ -85,10 +89,10 @@ int	ft_dlst_median(t_stack *stack)
 
 int	fake_median_check(t_stack *stack_a, int median)
 {
-	int fake_median;
-	t_stack *temp;
-	int i;
-	int stop;
+	int		fake_median;
+	t_stack	*temp;
+	int		i;
+	int		stop;
 
 	i = 0;
 	temp = NULL;

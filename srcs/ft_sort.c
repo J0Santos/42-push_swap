@@ -6,7 +6,7 @@
 /*   By: josantos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 14:41:00 by josantos          #+#    #+#             */
-/*   Updated: 2021/06/18 16:40:02 by josantos         ###   ########.fr       */
+/*   Updated: 2021/06/18 18:38:53 by josantos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	ft_sort(t_stack **stack)
 {
-	int i;
-	t_stack *stack_b;
-	
+	int		i;
+	t_stack	*stack_b;
+
 	stack_b = NULL;
 	i = ft_dlst_size(*stack);
 	if (ft_dlstis_sorted_ascend(*stack) == 0)
@@ -24,9 +24,7 @@ void	ft_sort(t_stack **stack)
 		if (i <= 3)
 			ft_sort_small(stack);
 		else if (i <= 5)
-		ft_sort_medium(stack);
-	/*	else if (i > 5 && i <= 100)
-			ft_sort_large_100(stack);*/
+			ft_sort_medium(stack);
 		else
 			ft_sort_large_500(stack);
 	}
@@ -35,8 +33,8 @@ void	ft_sort(t_stack **stack)
 void	ft_sort_small(t_stack **stack)
 {
 	int	max;
-	int min;
-	int sorted;
+	int	min;
+	int	sorted;
 
 	max = ft_dlst_max(*stack);
 	min = ft_dlst_min(*stack);
@@ -60,10 +58,10 @@ void	ft_sort_small(t_stack **stack)
 
 void	ft_sort_medium(t_stack **stack_a)
 {
-	int min;
-	int sorted;
-	int i;
-	t_stack *stack_b;
+	int		min;
+	int		sorted;
+	int		i;
+	t_stack	*stack_b;
 
 	sorted = 0;
 	i = 0;
@@ -85,35 +83,11 @@ void	ft_sort_medium(t_stack **stack_a)
 		ft_push_pa(&stack_b, stack_a);
 }
 
-/*void	ft_sort_large_100(t_stack **stack)
-{
-	t_stack *stack_b;
-	int median;
-
-	stack_b = NULL;
-	while (ft_dlst_size(*stack) > 17)
-	{
-		median = ft_dlst_median(*stack);
-		if ((*stack)->data < median)
-		{
-			ft_push_pb(stack, &stack_b);
-			ft_presort_b(&stack_b, stack);
-		}
-		else
-			if (ft_rotate_choice(*stack, median) == 0)
-				ft_rotate_ra(stack);
-			else
-				ft_rrotate_rra(stack);
-	}
-	ft_sort_a(stack, &stack_b);
-	ft_sort_b(&stack_b, stack);
-}*/
-
 void	ft_sort_large_500(t_stack **stack_a)
 {
-	t_stack *stack_b;
-	int min;
-	int count;
+	t_stack	*stack_b;
+	int		min;
+	int		count;
 
 	stack_b = NULL;
 	count = 0;
@@ -123,48 +97,3 @@ void	ft_sort_large_500(t_stack **stack_a)
 	min = ft_part_3(stack_a, &stack_b, min);
 	ft_part_4(stack_a, &stack_b, min);
 }
-/*void	ft_sort_large_500(t_stack **stack_a)
-{
-	t_stack *stack_b;
-	int median;
-	int size;
-	int split;
-	int count;
-
-	count = 0;
-	stack_b = NULL;
-	while (*stack_a)
-	{
-		if (ft_dlst_size(*stack_a) == 1)
-		{
-			ft_push_pb(stack_a, &stack_b);
-			break;
-		}
-		size = ft_dlst_size(*stack_a);
-		split = size / 2;
-		median = ft_dlst_median(*stack_a);
-		split = fake_split_check(split);
-		median = fake_median_check(*stack_a, median, split);
-		while (split >= 1)
-		{
-			if ((*stack_a)->data < median)
-			{
-				ft_push_pb(stack_a, &stack_b);
-				ft_presort_b_500(&stack_b, stack_a, median);
-				split--;
-				count++;
-			}
-			else
-				if (ft_rotate_choice(*stack_a, size, median) == 0)
-					ft_rotate_ra(stack_a);
-				else
-					ft_rrotate_rra(stack_a);
-			if (count == 125)
-			{
-				ft_presort_a_500(&stack_b, stack_a, count);
-				count = 0;
-			}
-		}
-	}
-	ft_sort_b_500(&stack_b, stack_a);
-}*/

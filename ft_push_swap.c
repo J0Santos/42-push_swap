@@ -6,7 +6,7 @@
 /*   By: josantos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 17:34:54 by josantos          #+#    #+#             */
-/*   Updated: 2021/06/11 16:34:11 by josantos         ###   ########.fr       */
+/*   Updated: 2021/06/18 17:44:13 by josantos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	build_stack(int input, t_stack **stack)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
 	temp = ft_dlst_new(input);
 	if (*stack == NULL)

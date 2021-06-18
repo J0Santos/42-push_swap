@@ -6,12 +6,12 @@
 /*   By: josantos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 13:29:43 by josantos          #+#    #+#             */
-/*   Updated: 2021/06/18 16:18:56 by josantos         ###   ########.fr       */
+/*   Updated: 2021/06/18 17:45:26 by josantos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef FT_PUSH_SWAP_H
+# define FT_PUSH_SWAP_H
 
 # include "../libft/libft.h"
 # include <stdlib.h>

@@ -6,7 +6,7 @@
 /*   By: josantos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 16:24:56 by josantos          #+#    #+#             */
-/*   Updated: 2021/06/15 12:44:44 by josantos         ###   ########.fr       */
+/*   Updated: 2021/06/18 18:00:29 by josantos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static int	ft_checkdigit(char *str)
 {
-	int i;
-	int a;
+	int	i;
+	int	a;
 
 	i = 0;
 	if ((str[i] == '-' || str[i] == '+') && ft_strlen(str) >= 2)
@@ -32,7 +32,7 @@ static int	ft_checkdigit(char *str)
 
 static int	ft_checkint(char *str)
 {
-	long long i;
+	long long	i;
 
 	i = ft_atoll(str);
 	if (i > 2147483647 || i < -2147483648)
@@ -42,10 +42,10 @@ static int	ft_checkint(char *str)
 
 static int	ft_isdup(char **argv, int argc)
 {
-	t_stack *checker;
-	int i;
-	int holder;
-	t_stack *holds_head;
+	t_stack	*checker;
+	int		i;
+	int		holder;
+	t_stack	*holds_head;
 
 	checker = NULL;
 	i = 0;
@@ -58,10 +58,10 @@ static int	ft_isdup(char **argv, int argc)
 		while (checker->next)
 			if (holder == checker->next->data)
 				return (1);
-			else
-				checker = checker->next;
+		else
+			checker = checker->next;
 		holds_head = holds_head->next;
-		checker = holds_head;;
+		checker = holds_head;
 	}
 	ft_dlst_clear(&checker);
 	return (0);
@@ -69,8 +69,8 @@ static int	ft_isdup(char **argv, int argc)
 
 void	ft_error_check(int argc, char **argv)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 1;
 	j = 1;
