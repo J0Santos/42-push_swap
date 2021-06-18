@@ -6,7 +6,7 @@
 /*   By: josantos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 15:22:23 by josantos          #+#    #+#             */
-/*   Updated: 2021/06/18 16:32:41 by josantos         ###   ########.fr       */
+/*   Updated: 2021/06/18 17:27:53 by josantos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,6 +145,7 @@ int	ft_part_1(t_stack **stack_a, t_stack **stack_b)
 			rotate = false;
 		}
 		else
+		{
 			if (rotate == false)
 			{
 				choice = ft_rotate_choice(*stack_a, fake_median);
@@ -154,6 +155,7 @@ int	ft_part_1(t_stack **stack_a, t_stack **stack_b)
 				ft_rotate_ra(stack_a);
 			else
 				ft_rrotate_rra(stack_a);
+		}
 	}
 	min = ft_dlst_min(*stack_b);
 	ft_sort_b_500(stack_b, stack_a, (*stack_a)->data);
@@ -170,9 +172,9 @@ int	ft_part_2(t_stack **stack_a, t_stack **stack_b, int min)
 	rotate = false;
 	median = ft_dlst_median(*stack_a);
 	stopper = (ft_pos_check(*stack_a, min) - ft_pos_check(*stack_a, median));
-	while (stopper > 1) 
+	while (stopper > 0) 
 	{
-		if ((*stack_a)->data > median && (*stack_a)->data < min)
+		if ((*stack_a)->data >= median && (*stack_a)->data < min)
 		{
 			ft_push_pb(stack_a, stack_b);
 			ft_presort_b_500(stack_b, stack_a, median);
@@ -180,6 +182,7 @@ int	ft_part_2(t_stack **stack_a, t_stack **stack_b, int min)
 			rotate = false;
 		}
 		else
+		{
 			if (rotate == false)
 			{
 				choice = ft_rotate_choice_2(*stack_a, median, min);
@@ -189,6 +192,7 @@ int	ft_part_2(t_stack **stack_a, t_stack **stack_b, int min)
 				ft_rotate_ra(stack_a);
 			else
 				ft_rrotate_rra(stack_a);
+		}
 	}
 	choice = min;
 	min = ft_dlst_min(*stack_b);
@@ -208,9 +212,9 @@ int	ft_part_3(t_stack **stack_a, t_stack **stack_b, int min)
 	median = ft_dlst_median(*stack_a);
 	fake_median = fake_median_min(*stack_a, median);
 	stopper = (ft_pos_check(*stack_a, min) - ft_pos_check(*stack_a, fake_median));
-	while (stopper > 1)
+	while (stopper > 0)
 	{
-		if ((*stack_a)->data > fake_median && (*stack_a)->data < min)
+		if ((*stack_a)->data >= fake_median && (*stack_a)->data < min)
 		{
 			ft_push_pb(stack_a, stack_b);
 			ft_presort_b_500(stack_b, stack_a, min);
@@ -218,6 +222,7 @@ int	ft_part_3(t_stack **stack_a, t_stack **stack_b, int min)
 			rotate = false;
 		}
 		else
+		{
 			if (rotate == false)
 			{
 				choice = ft_rotate_choice_2(*stack_a, fake_median, min);
@@ -227,6 +232,7 @@ int	ft_part_3(t_stack **stack_a, t_stack **stack_b, int min)
 				ft_rotate_ra(stack_a);
 			else
 				ft_rrotate_rra(stack_a);
+		}
 	}
 	choice = min;
 	min = ft_dlst_min(*stack_b);
@@ -244,9 +250,9 @@ void	ft_part_4(t_stack **stack_a, t_stack **stack_b, int min)
 	rotate = false;
 	median = ft_dlst_median(*stack_a);
 	stopper = ft_pos_check(*stack_a, min);
-	while (stopper > 1)
+	while (stopper > 0)
 	{
-		if ((*stack_a)->data <= min)
+		if ((*stack_a)->data < min)
 		{
 			ft_push_pb(stack_a, stack_b);
 			ft_presort_b_500(stack_b, stack_a, min);
@@ -254,6 +260,7 @@ void	ft_part_4(t_stack **stack_a, t_stack **stack_b, int min)
 			rotate = false;
 		}
 		else
+		{
 			if (rotate == false)
 			{
 				choice = ft_rotate_choice_3(*stack_a, min);
@@ -263,6 +270,7 @@ void	ft_part_4(t_stack **stack_a, t_stack **stack_b, int min)
 				ft_rotate_ra(stack_a);
 			else
 				ft_rrotate_rra(stack_a);
+		}
 	}
 	ft_sort_b_500(stack_b, stack_a, (*stack_a)->data);
 }

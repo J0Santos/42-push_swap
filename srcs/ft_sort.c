@@ -6,7 +6,7 @@
 /*   By: josantos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 14:41:00 by josantos          #+#    #+#             */
-/*   Updated: 2021/06/18 15:56:09 by josantos         ###   ########.fr       */
+/*   Updated: 2021/06/18 16:40:02 by josantos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ void	ft_sort(t_stack **stack)
 			ft_sort_small(stack);
 		else if (i <= 5)
 		ft_sort_medium(stack);
-		else if (i > 5 && i <= 100)
-			ft_sort_large_100(stack);
+	/*	else if (i > 5 && i <= 100)
+			ft_sort_large_100(stack);*/
 		else
 			ft_sort_large_500(stack);
 	}
@@ -85,7 +85,7 @@ void	ft_sort_medium(t_stack **stack_a)
 		ft_push_pa(&stack_b, stack_a);
 }
 
-void	ft_sort_large_100(t_stack **stack)
+/*void	ft_sort_large_100(t_stack **stack)
 {
 	t_stack *stack_b;
 	int median;
@@ -107,7 +107,7 @@ void	ft_sort_large_100(t_stack **stack)
 	}
 	ft_sort_a(stack, &stack_b);
 	ft_sort_b(&stack_b, stack);
-}
+}*/
 
 void	ft_sort_large_500(t_stack **stack_a)
 {
