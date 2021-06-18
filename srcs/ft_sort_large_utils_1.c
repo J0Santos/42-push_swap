@@ -6,7 +6,7 @@
 /*   By: josantos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 15:22:23 by josantos          #+#    #+#             */
-/*   Updated: 2021/06/18 19:26:10 by josantos         ###   ########.fr       */
+/*   Updated: 2021/06/18 20:04:49 by josantos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,15 @@ void	ft_part_1_cont(t_stack **stack_a, t_stack **stack_b, int fake_median,
 			int median)
 {
 	int	stopper;
+	int	comp_val;
 
+	if (ft_dlst_size(*stack_a) % 4 != 0)
+		comp_val = 0;
+	else
+		comp_val = 1;
 	stopper = ft_pos_check(*stack_a, fake_median)
 		- ft_pos_check(*stack_a, median);
-	while (stopper > 1)
+	while (stopper > comp_val)
 	{
 		if ((*stack_a)->data > fake_median)
 		{
