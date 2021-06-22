@@ -6,7 +6,7 @@
 /*   By: josantos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 14:41:00 by josantos          #+#    #+#             */
-/*   Updated: 2021/06/22 13:58:04 by josantos         ###   ########.fr       */
+/*   Updated: 2021/06/22 20:36:38 by josantos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,13 @@ void	ft_sort_medium(t_stack **stack_a, t_stack **stack_b)
 			i++;
 		}
 		else
-			ft_rotate_ra(stack_a);
+			if (ft_rotate_choice_limits_medium(*stack_a, min) == 1) 
+				ft_rotate_ra(stack_a);
+			else
+				ft_rrotate_rra(stack_a);
 	}
 	ft_sort_small(stack_a);
-	while (stack_b)
+	while (*stack_b)
 		ft_push_pa(stack_b, stack_a);
 }
 

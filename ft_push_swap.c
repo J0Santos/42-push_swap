@@ -6,7 +6,7 @@
 /*   By: josantos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 17:34:54 by josantos          #+#    #+#             */
-/*   Updated: 2021/06/22 17:28:58 by josantos         ###   ########.fr       */
+/*   Updated: 2021/06/22 17:59:04 by josantos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	main(int argc, char **argv)
 	i = 1;
 	stack_a = NULL;
 	stack_b = NULL;
-	ft_error_check(argc, argv);
+	ft_error_check(argc, argv, 1);
 	while (i < argc)
 	{
 		build_stack(ft_atoi(argv[i]), &stack_a);

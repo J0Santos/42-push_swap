@@ -6,7 +6,7 @@
 /*   By: josantos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 13:29:43 by josantos          #+#    #+#             */
-/*   Updated: 2021/06/22 14:14:18 by josantos         ###   ########.fr       */
+/*   Updated: 2021/06/22 20:36:14 by josantos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,13 @@ void	ft_rrotate_rrb(t_stack **stack_b);
 void	ft_rrotate_rrr(t_stack **stack_a, t_stack **stack_b);
 void	ft_push_pa(t_stack **stack_b, t_stack **stack_a);
 void	ft_push_pb(t_stack **stack_a, t_stack **stack_b);
-void	ft_error_check(int counter, char **str);
+void	ft_error_check(int counter, char **str, int i);
 void	ft_sort(t_stack **stack_a, t_stack **stack_b);
 int		ft_dlst_median(t_stack *stack);
 int		fake_median_check(t_stack *stack_a, int median);
 void	ft_sort_small(t_stack **stack);
 void	ft_sort_medium(t_stack **stack_a, t_stack **stack_b);
+int		ft_rotate_choice_limits_medium(t_stack *stack, int min);
 void	ft_sort_large_500(t_stack **stack_a, t_stack **stack_b);
 int		ft_rotate_choice(t_stack *stack, int median);
 int		ft_rotate_choice_2(t_stack *stack, int median, int limit);

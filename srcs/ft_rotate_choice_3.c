@@ -6,7 +6,7 @@
 /*   By: josantos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 15:58:06 by josantos          #+#    #+#             */
-/*   Updated: 2021/06/18 18:35:22 by josantos         ###   ########.fr       */
+/*   Updated: 2021/06/22 20:34:42 by josantos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,36 @@ int	ft_rotate_choice_3(t_stack *stack, int median)
 	pos_down = ft_position_down(stack, median);
 	pos_up = ft_position_up(stack, median);
 	if (pos_up < pos_down)
+		return (0);
+	else
+		return (1);
+}
+
+static int	ft_position_limits_medium(t_stack *stack, int limit)
+{
+	int	pos;
+
+	pos = 1;
+	while (stack->next)
+	{
+		if (stack->data == limit)
+			break ;
+		else
+		{
+			stack = stack->next;
+			pos++;
+		}
+	}
+	return (pos);
+}
+int	ft_rotate_choice_limits_medium(t_stack *stack, int min)
+{
+	int pos;
+	int size;
+
+	size = ft_dlst_size(stack);
+	pos = ft_position_limits_medium(stack, min);
+	if (pos > size / 2)
 		return (0);
 	else
 		return (1);

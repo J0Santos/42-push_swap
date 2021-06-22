@@ -6,7 +6,7 @@
 /*   By: josantos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 16:24:56 by josantos          #+#    #+#             */
-/*   Updated: 2021/06/22 17:32:55 by josantos         ###   ########.fr       */
+/*   Updated: 2021/06/22 19:30:00 by josantos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,18 +67,14 @@ static int	ft_isdup(char **argv, int argc)
 		holds_head = holds_head->next;
 		checker = holds_head;
 	}
-	checker = ft_dlst_last(checker);
 	ft_dlst_clear(&checker);
 	return (0);
 }
 
-void	ft_error_check(int argc, char **argv)
+void	ft_error_check(int argc, char **argv, int i)
 {
-	int	i;
-	int	j;
-
-	i = 1;
-	j = 1;
+	if (argc == 1)
+		exit(0);
 	while (i <= argc - 1)
 	{
 		if (ft_checkdigit(argv[i]) == 0)
