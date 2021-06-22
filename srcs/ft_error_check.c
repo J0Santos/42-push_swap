@@ -6,12 +6,11 @@
 /*   By: josantos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 16:24:56 by josantos          #+#    #+#             */
-/*   Updated: 2021/06/22 19:30:00 by josantos         ###   ########.fr       */
+/*   Updated: 2021/06/22 20:52:34 by josantos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
-
 
 static int	ft_checkdigit(char *str)
 {
@@ -41,38 +40,39 @@ static int	ft_checkint(char *str)
 	return (1);
 }
 
-static int	ft_isdup(char **argv, int argc)
+static int	ft_isdup(char **argv, int argc, int i, t_stack **checker)
 {
-	t_stack	*checker;
-	int		i;
 	int		holder;
 	t_stack	*holds_head;
 
-	checker = NULL;
-	i = 0;
 	while (++i < argc)
-		build_stack(ft_atoi(argv[i]), &checker);
-	holds_head = checker;
+		build_stack(ft_atoi(argv[i]), checker);
+	holds_head = *checker;
 	while (holds_head->next)
 	{
-		holder = checker->data;
-		while (checker->next)
-			if (holder == checker->next->data)
+		holder = (*checker)->data;
+		while ((*checker)->next)
+		{
+			if (holder == (*checker)->next->data)
 			{
-				ft_dlst_clear(&checker);
+				ft_dlst_clear(checker);
 				return (1);
 			}
-		else
-			checker = checker->next;
+			else
+				*checker = (*checker)->next;
+		}
 		holds_head = holds_head->next;
-		checker = holds_head;
+		*checker = holds_head;
 	}
-	ft_dlst_clear(&checker);
+	ft_dlst_clear(checker);
 	return (0);
 }
 
 void	ft_error_check(int argc, char **argv, int i)
 {
+	t_stack	*checker;
+
+	checker = NULL;
 	if (argc == 1)
 		exit(0);
 	while (i <= argc - 1)
@@ -89,7 +89,7 @@ void	ft_error_check(int argc, char **argv, int i)
 		}
 		i++;
 	}
-	if (ft_isdup(argv, argc) == 1)
+	if (ft_isdup(argv, argc, 0, &checker) == 1)
 	{
 		ft_putstr_fd("Error\n", 2);
 		exit(EXIT_FAILURE);

@@ -6,7 +6,7 @@
 /*   By: josantos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 15:58:06 by josantos          #+#    #+#             */
-/*   Updated: 2021/06/22 20:34:42 by josantos         ###   ########.fr       */
+/*   Updated: 2021/06/22 20:53:21 by josantos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,10 +79,11 @@ static int	ft_position_limits_medium(t_stack *stack, int limit)
 	}
 	return (pos);
 }
+
 int	ft_rotate_choice_limits_medium(t_stack *stack, int min)
 {
-	int pos;
-	int size;
+	int	pos;
+	int	size;
 
 	size = ft_dlst_size(stack);
 	pos = ft_position_limits_medium(stack, min);
