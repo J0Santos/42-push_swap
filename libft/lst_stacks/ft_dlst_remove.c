@@ -6,7 +6,7 @@
 /*   By: josantos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 16:24:22 by josantos          #+#    #+#             */
-/*   Updated: 2021/06/08 13:09:58 by josantos         ###   ########.fr       */
+/*   Updated: 2021/06/22 17:32:57 by josantos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,10 @@ void	ft_dlst_remove(t_stack **stack)
 		temp->prev->next = temp->next;
 	if (temp->prev)
 		*stack = temp->prev;
-	else if (temp->next)
-		*stack = temp->next;
 	else
-		*stack = NULL;
+		*stack = temp->next;
+	temp->prev = NULL;
+	temp->next = NULL;
 	free(temp);
+	temp = NULL;
 }

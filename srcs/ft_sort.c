@@ -6,27 +6,25 @@
 /*   By: josantos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 14:41:00 by josantos          #+#    #+#             */
-/*   Updated: 2021/06/18 18:38:53 by josantos         ###   ########.fr       */
+/*   Updated: 2021/06/22 13:58:04 by josantos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-void	ft_sort(t_stack **stack)
+void	ft_sort(t_stack **stack_a, t_stack **stack_b)
 {
 	int		i;
-	t_stack	*stack_b;
 
-	stack_b = NULL;
-	i = ft_dlst_size(*stack);
-	if (ft_dlstis_sorted_ascend(*stack) == 0)
+	i = ft_dlst_size(*stack_a);
+	if (ft_dlstis_sorted_ascend(*stack_a) == 0)
 	{
 		if (i <= 3)
-			ft_sort_small(stack);
+			ft_sort_small(stack_a);
 		else if (i <= 5)
-			ft_sort_medium(stack);
+			ft_sort_medium(stack_a, stack_b);
 		else
-			ft_sort_large_500(stack);
+			ft_sort_large_500(stack_a, stack_b);
 	}
 }
 
@@ -56,23 +54,21 @@ void	ft_sort_small(t_stack **stack)
 	}
 }
 
-void	ft_sort_medium(t_stack **stack_a)
+void	ft_sort_medium(t_stack **stack_a, t_stack **stack_b)
 {
 	int		min;
 	int		sorted;
 	int		i;
-	t_stack	*stack_b;
 
 	sorted = 0;
 	i = 0;
-	stack_b = NULL;
 	while (i < 2)
 	{
 		min = ft_dlst_min(*stack_a);
 		*stack_a = ft_dlst_first(*stack_a);
 		if ((*stack_a)->data == min)
 		{
-			ft_push_pb(stack_a, &stack_b);
+			ft_push_pb(stack_a, stack_b);
 			i++;
 		}
 		else
@@ -80,20 +76,18 @@ void	ft_sort_medium(t_stack **stack_a)
 	}
 	ft_sort_small(stack_a);
 	while (stack_b)
-		ft_push_pa(&stack_b, stack_a);
+		ft_push_pa(stack_b, stack_a);
 }
 
-void	ft_sort_large_500(t_stack **stack_a)
+void	ft_sort_large_500(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack	*stack_b;
 	int		min;
 	int		count;
 
-	stack_b = NULL;
 	count = 0;
 	min = 0;
-	min = ft_part_1(stack_a, &stack_b);
-	min = ft_part_2(stack_a, &stack_b, min);
-	min = ft_part_3(stack_a, &stack_b, min);
-	ft_part_4(stack_a, &stack_b, min);
+	min = ft_part_1(stack_a, stack_b);
+	min = ft_part_2(stack_a, stack_b, min);
+	min = ft_part_3(stack_a, stack_b, min);
+	ft_part_4(stack_a, stack_b, min);
 }

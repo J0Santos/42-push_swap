@@ -6,7 +6,7 @@
 /*   By: josantos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 13:12:11 by josantos          #+#    #+#             */
-/*   Updated: 2021/06/18 18:32:02 by josantos         ###   ########.fr       */
+/*   Updated: 2021/06/22 13:57:36 by josantos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,6 @@ int	ft_dlst_median(t_stack *stack)
 	while (i++ <= (size / 2))
 		temp = temp->next;
 	median = temp->data;
-	temp = ft_dlst_last(temp);
 	ft_dlst_clear(&temp);
 	return (median);
 }

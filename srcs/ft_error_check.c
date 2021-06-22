@@ -6,11 +6,12 @@
 /*   By: josantos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 16:24:56 by josantos          #+#    #+#             */
-/*   Updated: 2021/06/18 18:00:29 by josantos         ###   ########.fr       */
+/*   Updated: 2021/06/22 17:32:55 by josantos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
+
 
 static int	ft_checkdigit(char *str)
 {
@@ -52,17 +53,21 @@ static int	ft_isdup(char **argv, int argc)
 	while (++i < argc)
 		build_stack(ft_atoi(argv[i]), &checker);
 	holds_head = checker;
-	while (holds_head)
+	while (holds_head->next)
 	{
 		holder = checker->data;
 		while (checker->next)
 			if (holder == checker->next->data)
+			{
+				ft_dlst_clear(&checker);
 				return (1);
+			}
 		else
 			checker = checker->next;
 		holds_head = holds_head->next;
 		checker = holds_head;
 	}
+	checker = ft_dlst_last(checker);
 	ft_dlst_clear(&checker);
 	return (0);
 }

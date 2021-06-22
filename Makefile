@@ -15,7 +15,7 @@ SRCS = ft_push_swap.c \
 		srcs/ft_sort_large_utils_2.c
 
 OBJS = $(SRCS:.c=.o)
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -g
 INCS = -Iincludes -Llibft -lft
 CC = gcc
 
