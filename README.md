@@ -1,7 +1,14 @@
 # Push_Swap 🔄
+
+## Grade 🧑‍🎓
+
+![Grade](https://github.com/J0Santos/42-push_swap/blob/5908b02fd7dbfe6b0ba478774a92de66f270fa0f/Readme_utils/Grade.png)
+
 ## Introduction
 
 This project is part of the 2nd Tier of the 42 Cursus.  
+
+#### -----> [PDF](https://github.com/J0Santos/42-push_swap/blob/5908b02fd7dbfe6b0ba478774a92de66f270fa0f/Readme_utils/Push_Swap.pdf) <-----
 
 We are given 2 stacks:   
 `Stack A` is filled with a random amount of ints (negative and positive) in a random order;  
@@ -113,7 +120,7 @@ I repeat the process of finding the second median, this time to find a third med
 
 The process should look exactly like this:
 
-![Visualizer](https://github.com/J0Santos/42-push_swap/blob/master/ezgif.com-gif-maker.gif)
+![Visualizer](https://github.com/J0Santos/42-push_swap/blob/5908b02fd7dbfe6b0ba478774a92de66f270fa0f/Readme_utils/Visualizer.gif)
 
 ## Possible Improvements
 
