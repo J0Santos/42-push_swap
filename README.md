@@ -112,3 +112,5 @@ After this I do the exact same thing but with the value between the first median
 I repeat the precess of finding the second median, this time to find a third median between the first median and the min value of `Stack A`. I then do the exact same sorting for the numbers between the first median and the third median and lastly the numbers between the third median and the min value.
 
 The process should look exactly like this:
+
+![Visualizer] (https://github.com/J0Santos/42-push_swap/blob/512e3c967fad91d44782b7b05cfb73b5dd50cc8e/ezgif.com-gif-maker.gif)
