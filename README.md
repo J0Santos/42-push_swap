@@ -41,14 +41,14 @@ If the arguments given are:
 
 The program should return an `Error` message.
 
-If *1 or less arguments* are given, or the arguments given are *already sorted* the program should return `nothing(zero lines)`.
+If *1 or fewer arguments* are given, or the arguments given are *already sorted* the program should return `nothing(zero lines)`.
 
 ## Method & Algorithms 🤔
 
 I decided to go with `Double Linked Lists` with the idea of having less trouble going up and down the stacks.
 This also helped me a lot with understanding even more about double pointers and the so called *pointer's magic*.
 
-I also decided to divide my program in 3 different algorithms depending on the size of `Stack A`.
+I also decided to divide my program into 3 different algorithms depending on the size of `Stack A`.
 
 #### Sort Small ▫️
 
@@ -103,14 +103,30 @@ If the size of `Stack A` is **larger than 5** the program will run this algorith
 
 The original idea was to have this part divided in two, where the first part would handle sizes of 100 numbers or less and the second part would handle sizes with over 100 numbers.  I ended up deciding to make an algorithm that would work for both these cases at the same time instead of separating them.
 
-The way the algorithm works is by dividing `Stack A` into 4 parts using **medians**. I start by finding the first median of the stack. After that, I use said median and find another median, this time between the first median and the max value. 
+The way the algorithm works is by dividing `Stack A` into 4 parts using **medians**. I start by finding the first median of the stack. After that, I use the said median and find another median, this time between the first median and the max value. 
 
-I then send all values larger than this second median to `Stack B` using some functions to "pre-sort" them when they reach the stack. After all numbers are pushed to `Stack B`, I send them back to `Stack A` but already sorted.
+I then send all values larger than this second median to `Stack B` using some functions to "pre-sort" them when they reach the stack. After all the numbers are pushed to `Stack B`, I send them back to `Stack A` but already sorted.
 
-After this I do the exact same thing but with the value between the first median and the second median.
+After this, I do the same thing but with the value between the first median and the second median.
 
-I repeat the precess of finding the second median, this time to find a third median between the first median and the min value of `Stack A`. I then do the exact same sorting for the numbers between the first median and the third median and lastly the numbers between the third median and the min value.
+I repeat the process of finding the second median, this time to find a third median between the first median and the min value of `Stack A`. I then do the exact same sorting for the numbers between the first median and the third median and lastly the numbers between the third median and the min value.
 
 The process should look exactly like this:
 
-![Visualizer] (https://github.com/J0Santos/42-push_swap/blob/512e3c967fad91d44782b7b05cfb73b5dd50cc8e/ezgif.com-gif-maker.gif)
+![Visualizer](https://github.com/J0Santos/42-push_swap/blob/master/ezgif.com-gif-maker.gif)
+
+## Possible Improvements
+
+* During the third part, when I **pa** all numbers from `Stack B`, I decided to make the sorting a bit messy only for the visual effect while using the visualizer, because why not? If I had not done this, I would have had fewer instructions but my grade would still be the same so I allowed myself to have some fun. 😉
+
+* If I were to divide `Stack A` a couple more times, I believe I'd get fewer instructions. Between 6-8 total divisions would probably be the best, but this is just speculation.
+
+* If I were to make the program recursive and figure out how many medians I had to find out instead of settling for 4 in all cases, I'm sure I could get way fewer instructions, especially when dealing with over 100 numbers.
+
+Why don't I do this then? Because I'm already happy with what I achieved. The algorithm created by me alone and the fact that it got me a passing grade is currently sufficient for me. I'm sure I'll come back in the future to make the program better, but for now, it is how it is.
+
+## Useful Stuff 💡
+
+* [GitHub for the Visualizer](https://github.com/o-reo/push_swap_visualizer);
+* [Guide I used for the project introduction](https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a);
+* [If you are feeling adventurous](https://www.geeksforgeeks.org/merge-sort-for-doubly-linked-list/);
