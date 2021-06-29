@@ -122,6 +122,9 @@ The process should look exactly like this:
 
 ![Visualizer](https://github.com/J0Santos/42-push_swap/blob/5908b02fd7dbfe6b0ba478774a92de66f270fa0f/Readme_utils/Visualizer.gif)
 
+To test the sorting length I used the following command line: **`./(program name) $(seq 1 500| sort -R) | wc -l`**.
+This would provide me with a random list of numbers from 1 to 500 and would only output the number of intructions my program had to use to sort the list.
+
 ## Possible Improvements
 
 * During the third part, when I **pa** all numbers from `Stack B`, I decided to make the sorting a bit messy only for the visual effect while using the visualizer, because why not? If I had not done this, I would have had fewer instructions but my grade would still be the same so I allowed myself to have some fun. 😉
